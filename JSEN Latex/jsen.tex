@@ -91,6 +91,8 @@ conference.
 IEEE will do the final formatting of your paper. If your paper is intended 
 for a conference, please observe the conference page limits. 
 
+
+
 \subsection{Multiplex Applications of QDs}
 Define abbreviations and acronyms the first time they are used in the text, 
 even after they have already been defined in the abstract. Abbreviations 
@@ -111,7 +113,7 @@ I think here is where we discuss background on Multiplex QD predictions and the
 benefit in using raspberry pi vs smart phone?
 
 
-\section{Data collections and Experimental details }
+\section{Methods}
 Use either SI (MKS) or CGS as primary units. (SI units are strongly 
 encouraged.) English units may be used as secondary units (in parentheses). 
 This applies to papers in data storage. For example, write ``15 
@@ -122,16 +124,25 @@ and magnetic field in oersteds. This often leads to confusion because
 equations do not balance dimensionally. If you must use mixed units, clearly 
 state the units for each quantity in an equation.
 
+\subsection{Multispectral sensing system}
+
+
 The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use 
 units of T, either refer to magnetic flux density $B$ or magnetic field 
 strength symbolized as $\mu _{0}H$. Use the center dot to separate 
 compound units, e.g., ``A$\cdot $m$^{2}$.''
 
-\section{Machine learning implementation}
+\subsection{Set up for testing our sensing system}
+The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use 
+units of T, either refer to magnetic flux density $B$ or magnetic field 
+strength symbolized as $\mu _{0}H$. Use the center dot to separate 
+compound units, e.g., ``A$\cdot $m$^{2}$.''
+
+
+\subsection{Description of Machine learning algorithms}
 
 We have used supervised machine learning to predict the QD concentration from the eight wavelength intensities. For each observation $x_i$ for $i = 1,2,..,n$ there is an associated response measurement $y_i$. The goal during training, is to approximate a mapping function from the input $x$ to the output $y$ variable, so that when given a new set of unknown input data, the algorithm can correctly predict the correct output variable.  To avoid potential overfitting of the data, we have used 10fold-cross validation scheme.
 
-\subsection{Model Definitions}
 We have tried 5 distinct types of ML algorithms to predict the QD concentration. In this section we provide a shot description and key properties of each ML algorithm.
 (following the style of Subhendu Pandit paper)
 
@@ -181,18 +192,6 @@ It is good practice to explain the significance of the figure in the caption.}
 \end{figure*}
 
 
-\subsection{Model Selection}
-
-\subsubsection{Metrics}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
-
-
-Here we discuss cross validation accuracy and BIC, AIC criterial? 
-
-\subsubsection{Confidence interval for Bayesian Methods}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
 
 
 \begin{table}
@@ -237,14 +236,31 @@ Multiivariate &
 \label{tab1}
 \end{table}
 
-\section{Making Predictions }
+\section{Results }
+
+
+\subsection{Characterizing the limit of detection}
+
 A conclusion section is not required. Although a conclusion may review the 
 main points of the paper, do not replicate the abstract as the conclusion. A 
 conclusion might elaborate on the importance of the work or suggest 
-applications and extensions. A conclusion section is not required. Although a conclusion may review the 
-main points of the paper, do not replicate the abstract as the conclusion. A 
-conclusion might elaborate on the importance of the work or suggest 
-applications and extensions. 
+applications and extensions.
+
+\subsection{Model Selection}
+
+\subsubsection{Metrics}
+{Figures that are composed of only black lines and shapes. These figures 
+should have no shades or half-tones of gray, only black and white.}
+
+
+Here we discuss cross validation accuracy and BIC, AIC criterial? 
+
+\subsubsection{Confidence interval for Bayesian Methods}
+{Figures that are composed of only black lines and shapes. These figures 
+should have no shades or half-tones of gray, only black and white.}
+
+
+\subsection{Making Predictions}
 
 \subsubsection{Raspberry Pi Details}
 {Figures that are composed of only black lines and shapes. These figures 

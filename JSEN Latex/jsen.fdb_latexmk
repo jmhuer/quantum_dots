@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1632070201 "jsen.tex" "jsen.pdf" "jsen" 1632070202
+["pdflatex"] 1632083890 "jsen.tex" "jsen.pdf" "jsen" 1632083890
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -121,11 +121,11 @@
   "a3.png" 1632000182 17161 a657f03945791525b16e5f9d8c991abf ""
   "fig1.png" 1632068575 104431 2fb25664e643b855d3c294f3ae01f24e ""
   "ieeecolor.cls" 1631986988 225027 c8a37508ae32f52489d59ea705288bac ""
-  "jsen.aux" 1632070201 5189 a53d62083f39ce03c36feef9ca2fc9ca "pdflatex"
+  "jsen.aux" 1632083890 5539 4081971e33274058b01876b2501a5dac "pdflatex"
   "jsen.sty" 1631986988 194 f631e3cbadef91d3bbac8bb0024e0448 ""
-  "jsen.tex" 1632070200 38345 c829432ff560111bf74f904f5ee349b3 ""
+  "jsen.tex" 1632083889 38483 2ab3c87e4cf8c3d29478d6005c1d2411 ""
   "jsenga.png" 1631986988 78428 a748b773b3048b918b2b0c7870ba86b8 ""
   (generated)
+  "jsen.aux"
   "jsen.log"
   "jsen.pdf"
-  "jsen.aux"
