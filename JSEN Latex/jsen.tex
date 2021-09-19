@@ -14,7 +14,7 @@
 \setlength{\fboxrule}{0pt}
 \setlength{\fboxsep}{0pt}
 \begin{document}
-\title{Multiplex detection with multispectral sensors and machine learning }
+\title{Multiplex Detection with Multispectral Sensors and Machine Learning }
 \author{First A. Author, \IEEEmembership{Fellow, IEEE}, Second B. Author, and Third C. Author, Jr., \IEEEmembership{Member, IEEE}
 \thanks{This paragraph of the first footnote will contain the date on 
 which you submitted your paper for review. It will also contain support 
@@ -91,7 +91,14 @@ conference.
 IEEE will do the final formatting of your paper. If your paper is intended 
 for a conference, please observe the conference page limits. 
 
-\subsection{Applications of Multiplex Detection}
+\subsection{Multiplex Applications of QDs}
+Define abbreviations and acronyms the first time they are used in the text, 
+even after they have already been defined in the abstract. Abbreviations 
+such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that 
+incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N. 
+R. S.'' Do not use abbreviations in the title unless they are unavoidable 
+(for example, ``IEEE'' in the title of this article).
+\subsection{Multi-spectral sensor in bio-assays}
 Define abbreviations and acronyms the first time they are used in the text, 
 even after they have already been defined in the abstract. Abbreviations 
 such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that 
@@ -99,9 +106,9 @@ incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N.
 R. S.'' Do not use abbreviations in the title unless they are unavoidable 
 (for example, ``IEEE'' in the title of this article).
 
-\subsection{Machine learning for Assays Predictions}
-I think here is where we discuss background on ML and assays predictions and the
-benefit in using raspberry pi vs smart phone 
+\subsection{Machine learning background}
+I think here is where we discuss background on Multiplex QD predictions and the
+benefit in using raspberry pi vs smart phone?
 
 
 \section{Data collections and Experimental details }
@@ -122,45 +129,56 @@ compound units, e.g., ``A$\cdot $m$^{2}$.''
 
 \section{Machine learning implementation}
 
-The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use 
-units of T, either refer to magnetic flux density $B$ or magnetic field 
-strength symbolized as $\mu _{0}H$. Use the center dot to separate 
-compound units, e.g., ``A$\cdot $m$^{2}$.''. 
-Here we refer to the table of models 
-<TABLE OF MODELS> 
+We have used supervised machine learning to predict the QD concentration from the eight wavelength intensities. For each observation $x_i$ for $i = 1,2,..,n$ there is an associated response measurement $y_i$. The goal during training, is to approximate a mapping function from the input $x$ to the output $y$ variable, so that when given a new set of unknown input data, the algorithm can correctly predict the correct output variable.  To avoid potential overfitting of the data, we have used 10fold-cross validation scheme.
 
 \subsection{Model Definitions}
-The following list outlines the different types of graphics published in 
-IEEE journals. They are categorized based on their construction, and use of 
-color/shades of gray:
+We have tried 5 distinct types of ML algorithms to predict the QD concentration. In this section we provide a shot description and key properties of each ML algorithm.
+(following the style of Subhendu Pandit paper)
 
 \subsubsection{Univariate Models}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
+{One possible appraoch to predict multiple QD types is to train a model for each emitter. During inference time we run both models in sequence. 
+
+
+"Gaussian process regression is nonparametric (i.e. not limited by a functional form), so rather than calculating the probability distribution of parameters of a specific function, GPR calculates the probability distribution over all admissible functions that fit the data. However, similar to the above, we specify a prior (on the function space), calculate the posterior using the training data, and compute the predictive posterior distribution on our points of interest."
+
+"Regression NN predict an output variable as a function of the inputs. The input features (independent variables) can be categorical or numeric types, however, for regression NN, we require a numeric dependent variable. If the output variable is a categorical variable (or binary) the ANN will function as a classifier"
+
+" random forest is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree"
+
+" Support Vector Regression is a supervised learning algorithm that is used to predict discrete values. Support Vector Regression uses the same principle as the SVMs. The basic idea behind SVR is to find the best fit line. In SVR, the best fit line is the hyperplane that has the maximum number of points."
+
+"Linear regression is a linear model, e.g. a model that assumes a linear relationship between the input variables (x) and the single output variable (y). More specifically, that y can be calculated from a linear combination of the input variables (x).
+
+When there is a single input variable (x), the method is referred to as simple linear regression. When there are multiple input variables, literature from statistics often refers to the method as multiple linear regression."
+
+
+}
 
 \subsubsection{Multivariate  Models}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
+{Here we briefly discuss the extensions required to make some of the models multivariate  
+
+}
 
 \subsubsection{Frequentist vs Bayesian Models}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
+{here we discuss the key differences in assumptions and applications between bayesian methods and frequentist methods. 
+Also discuss confidence intervals, and some considerations when comparing models.}
 
 
 \subsection{Training Details}
 Here we can discuss general training details. Epochs, libraries we used. 
 and other compute details
-\subsubsection{Hyperparameter Optimization}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
+\subsubsection{Hyper-parameter Optimization}
+{Every algorithm attempted here has various hyper-parameters that affect the corresponding optimization process. 
+These can have a significant difference in learning, so its important we employ a search to find optimal hyper-parameters. I think we can 
+make a table in appendix showing optimal hyperparameters   }
 
 
-\begin{figure}[!t]
-\centerline{\includegraphics[width=\columnwidth]{fig1.png}}
+\begin{figure*}[!t]
+\centerline{\includegraphics[width=15cm]{fig1.png}}
 \caption{Magnetization as a function of applied field.
 It is good practice to explain the significance of the figure in the caption.}
 \label{fig1}
-\end{figure}
+\end{figure*}
 
 
 \subsection{Model Selection}
@@ -170,7 +188,7 @@ It is good practice to explain the significance of the figure in the caption.}
 should have no shades or half-tones of gray, only black and white.}
 
 
-Here we discuss corss validation accruacy and BIC, AIC criterial? 
+Here we discuss cross validation accuracy and BIC, AIC criterial? 
 
 \subsubsection{Confidence interval for Bayesian Methods}
 {Figures that are composed of only black lines and shapes. These figures 
@@ -178,67 +196,43 @@ should have no shades or half-tones of gray, only black and white.}
 
 
 \begin{table}
-\caption{Units for Magnetic Properties}
+\caption{Machine learning models}
 \label{table}
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{|p{25pt}|p{75pt}|p{115pt}|}
+\begin{tabular}{|p{100pt}|p{45pt}|p{35pt}|p{50pt}|}
 \hline
-Symbol& 
-Quantity& 
-Conversion from Gaussian and \par CGS EMU to SI $^{\mathrm{a}}$ \\
+Model & 
+Type& 
+Accuracy\textsuperscript{*}   &
+Trainable Parameters \\
 \hline
-$\Phi $& 
-magnetic flux& 
-1 Mx $\to  10^{-8}$ Wb $= 10^{-8}$ V$\cdot $s \\
-$B$& 
-magnetic flux density, \par magnetic induction& 
-1 G $\to  10^{-4}$ T $= 10^{-4}$ Wb/m$^{2}$ \\
-$H$& 
-magnetic field strength& 
-1 Oe $\to  10^{3}/(4\pi )$ A/m \\
-$m$& 
-magnetic moment& 
-1 erg/G $=$ 1 emu \par $\to 10^{-3}$ A$\cdot $m$^{2} = 10^{-3}$ J/T \\
-$M$& 
-magnetization& 
-1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 10^{3}$ A/m \\
-4$\pi M$& 
-magnetization& 
-1 G $\to  10^{3}/(4\pi )$ A/m \\
-$\sigma $& 
-specific magnetization& 
-1 erg/(G$\cdot $g) $=$ 1 emu/g $\to $ 1 A$\cdot $m$^{2}$/kg \\
-$j$& 
-magnetic dipole \par moment& 
-1 erg/G $=$ 1 emu \par $\to 4\pi \times  10^{-10}$ Wb$\cdot $m \\
-$J$& 
-magnetic polarization& 
-1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 4\pi \times  10^{-4}$ T \\
-$\chi , \kappa $& 
-susceptibility& 
-1 $\to  4\pi $ \\
-$\chi_{\rho }$& 
-mass susceptibility& 
-1 cm$^{3}$/g $\to  4\pi \times  10^{-3}$ m$^{3}$/kg \\
-$\mu $& 
-permeability& 
-1 $\to  4\pi \times  10^{-7}$ H/m \par $= 4\pi \times  10^{-7}$ Wb/(A$\cdot $m) \\
-$\mu_{r}$& 
-relative permeability& 
-$\mu \to \mu_{r}$ \\
-$w, W$& 
-energy density& 
-1 erg/cm$^{3} \to  10^{-1}$ J/m$^{3}$ \\
-$N, D$& 
-demagnetizing factor& 
-1 $\to  1/(4\pi )$ \\
+Gaussian Process Reggression & 
+Univariate& 
+4.5   &
+N/A\textsuperscript{**} \\
+Linear Regression  & 
+Univariate & 
+4.5   &
+1 \\
+Bayesian Regression & 
+Univariate & 
+4.5   &
+1 \\
+Random Forest Regession & 
+Univariate & 
+4.5   &
+1 \\
+Neural Network & 
+Univariate & 
+4.5   &
+1 \\
+Neural Network & 
+Multiivariate & 
+4.5   &
+1 \\
 \hline
-\multicolumn{3}{p{251pt}}{Vertical lines are optional in tables. Statements that serve as captions for 
-the entire table do not need footnote letters. }\\
-\multicolumn{3}{p{251pt}}{$^{\mathrm{a}}$Gaussian units are the same as cg emu for magnetostatics; Mx 
-$=$ maxwell, G $=$ gauss, Oe $=$ oersted; Wb $=$ weber, V $=$ volt, s $=$ 
-second, T $=$ tesla, m $=$ meter, A $=$ ampere, J $=$ joule, kg $=$ 
-kilogram, H $=$ henry.}
+\multicolumn{4}{p{251pt}}{*Accuracy is measure of MSE for 10-fold Cross val. All models were tested using the same cross validation dataset breakdown. For univaraite models accuracy is the average between the two models}\\
+\multicolumn{4}{p{251pt}}{**Bayesian methods are non-parametric and therefore have no trainable parameters}\\
 \end{tabular}
 \label{tab1}
 \end{table}
