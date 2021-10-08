@@ -40,26 +40,9 @@ Tsukuba, Japan (e-mail: author@nrim.go.jp).}}
 \includegraphics[width=1.7in]{22.png}%
 \end{wrapfigure}%
 \begin{abstract}
-These instructions give you guidelines for preparing papers for 
-IEEE Transactions and Journals. Use this document as a template if you are 
-using \LaTeX. Otherwise, use this document as an 
-instruction set. The electronic file of your paper will be formatted further 
-at IEEE. Paper titles should be written in uppercase and lowercase letters, 
-not all uppercase. Avoid writing long formulas with subscripts in the title; 
-short formulas that identify the elements are fine (e.g., "Nd--Fe--B"). Do 
-not write ``(Invited)'' in the title. Full names of authors are preferred in 
-the author field, but are not required. Put a space between authors' 
-initials. The abstract must be a concise yet comprehensive reflection of 
-what is in your article. In particular, the abstract must be self-contained, 
-without abbreviations, footnotes, or references. It should be a microcosm of 
-the full article. The abstract must be between 150--250 words. Be sure that 
-you adhere to these limits; otherwise, you will need to edit your abstract 
-accordingly. The abstract must be written as one paragraph, and should not 
-contain displayed mathematical equations or tabular material. The abstract 
-should include three or four different keywords or phrases, as this will 
-help readers to find it. It is important to avoid over-repetition of such 
-phrases as this can result in a page being rejected by search engines. 
-Ensure that your abstract reads well and is grammatically correct.
+Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Consider, for example, a patient coming to a clinic with respiratory symptoms. The physician may take a sample from the patient, and if they have access to single-plex tests only, they will test for the pathogen they suspect is most likely responsible for the respiratory problem. If the test comes out negative, they will need another sample and will have to test for another pathogen. In essence, the physician is using an elimination process for diagnosis. A multiplex test that screens the patient for multiple pathogens simultaneously will expedite the diagnosis process.  
+Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. They have, for example, been used to quantify the amount of cholera toxin, ricin, shiga-like toxin 1, and staphylococcal enterotoxin B in a sample. Multiplex analysis based on quantum dots have also been developed to identify illicit substances such as dexamethasone, gentamicin, clonazepam, medroxyprogesterone acetate, and ceftiofur. More recently, they have been applied to detect multiple tumor markers, or to monitor the activity of protease enzymes such as trypsin, chymotrypsin and enterokinase.
+ As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -77,28 +60,17 @@ e-mail to keywords@ieee.org or visit \underline
 \IEEEPARstart{C}{olorimetric} and luminescent assays are tests that generate colored reactants or fluorescence when an analyte of interest is present in a sample. They are widely used in biosensing, such as in disease diagnosis, food safety testing, environmental monitoring, and quality control. Since their signals are obtained through the spectral analysis of light, the detectors needed for these assays can be complex, bulky, and expensive. They often require trained personnel to maintain and operate them. These factors can slow, or even prevent, diagnosis in resource-limited regions. 
 Imaging-based technologies such as smartphone spectrometers have been touted as solutions to make biosensing accessible worldwide. However, they need complicated procedures for calibrating the wavelength scale and converting digital images into spectra. (details about what is complicated about the procedures) Moreover, users have limited control over camera parameters. It restricts their application to areas where people have the technical know-how to set them up properly in order to get reproducible image quality.  
 Inexpensive multispectral sensors have recently been introduced commercially, and they have none of these constraints of imaging-based technologies. They require no calibration by the user as they come fitted with Gaussian interference filters and can monitor the following wavelengths simultaneously, with a full-width at half-maximum of 40 nm: 450 nm, 500 nm, 550 nm, 570 nm, 600 nm, and 650 nm. This set of wavelengths is adequate for many colorimetric, fluorescent, and luminescent assays. Being easy to assemble, troubleshoot and operate, these multispectral sensors are appealing to resource-limited laboratories. They have, for example, been interfaced with a Raspberry Pi Zero to produce a simple colorimetric reader for bio-assays. They are also versatile and can be found in applications ranging from wireless capsule endoscopy prototypes to systems characterizing microfluidic chips. In this work, we demonstrate their potential for multiplex detection.  
-Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Consider, for example, a patient coming to a clinic with respiratory symptoms. The physician may take a sample from the patient, and if they have access to single-plex tests only, they will test for the pathogen they suspect is most likely responsible for the respiratory problem. If the test comes out negative, they will need another sample and will have to test for another pathogen. In essence, the physician is using an elimination process for diagnosis. A multiplex test that screens the patient for multiple pathogens simultaneously will expedite the diagnosis process.  
-Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. They have, for example, been used to quantify the amount of cholera toxin, ricin, shiga-like toxin 1, and staphylococcal enterotoxin B in a sample. Multiplex analysis based on quantum dots have also been developed to identify illicit substances such as dexamethasone, gentamicin, clonazepam, medroxyprogesterone acetate, and ceftiofur. More recently, they have been applied to detect multiple tumor markers, or to monitor the activity of protease enzymes such as trypsin, chymotrypsin and enterokinase. As a proof-of-concept, we demonstrate the capability of these multispectral sensors for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
-
+ kkk
 \subsection{Multiplex Applications of QDs}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have already been defined in the abstract. Abbreviations 
-such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that 
-incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N. 
-R. S.'' Do not use abbreviations in the title unless they are unavoidable 
-(for example, ``IEEE'' in the title of this article).
-\subsection{Multi-spectral sensor in bio-assays}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have already been defined in the abstract. Abbreviations 
-such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that 
-incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N. 
-R. S.'' Do not use abbreviations in the title unless they are unavoidable 
-(for example, ``IEEE'' in the title of this article).
+Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Consider, for example, a patient coming to a clinic with respiratory symptoms. The physician may take a sample from the patient, and if they have access to single-plex tests only, they will test for the pathogen they suspect is most likely responsible for the respiratory problem. If the test comes out negative, they will need another sample and will have to test for another pathogen. In essence, the physician is using an elimination process for diagnosis. A multiplex test that screens the patient for multiple pathogens simultaneously will expedite the diagnosis process.  
+Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. They have, for example, been used to quantify the amount of cholera toxin, ricin, shiga-like toxin 1, and staphylococcal enterotoxin B in a sample. Multiplex analysis based on quantum dots have also been developed to identify illicit substances such as dexamethasone, gentamicin, clonazepam, medroxyprogesterone acetate, and ceftiofur. More recently, they have been applied to detect multiple tumor markers, or to monitor the activity of protease enzymes such as trypsin, chymotrypsin and enterokinase.
+ As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
 
 \subsection{Machine learning background}
-I think here is where we discuss background on Multiplex QD predictions and the
-benefit in using raspberry pi vs smart phone?
-
+kkk
+In order to make rapid predictions with some acquired training data, we use some popular machine learning algorithms. Machine learning can improve sensor performance in different ways 4, 5. It makes a sensor system intelligent through the detection, quantification, and classification of past/current events or prediction of future ones. Statistical learning allows for the modelling of complicated relationships between the input and output of a sensor 6, (self-)calibration 7, 8, and improving the overall reliability and accuracy of a sensor system 9, 10. Machine learning algorithms can be staggered for improved performance. For instance, in 11 the performance of capacitive proximity sensors was enhanced through multiple signal processing levels. After detecting the presence of an object (model-based), the system determined its shape (categorization) and then utilized a library of measured values to accurately estimate the distance to the object (regression). This combination of deterministic and statistical models was shown to improve sensor accuracy significantly. In sensing applications, the ML algorithms are typically
+implemented digitally on general-purpose microprocessors. Recently, the concept of reservoir computing (RC) has emerged as an opportunity to recognize context based on the physical response of the systems rather than nonlinear transformation of features in the digital domain 12–14. Careful system design
+\\
 
 \section{Methods}
 Use either SI (MKS) or CGS as primary units. (SI units are strongly 
@@ -115,11 +87,6 @@ state the units for each quantity in an equation.
 Our system uses a commercially available multispectral sensor (Adafruit AS7341). Its data are read and processed with a standard I2C bus on an appropriate microcontroller, which was a Raspberry Pi Zero in our case. The system can be tailored to different applications since the software to run it is written in the Python language and can easily be modified. The microcontroller gives users the ability to attach a screen to view the data, or to transfer the results to another location via WiFi.
  
 
-
-The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use 
-units of T, either refer to magnetic flux density $B$ or magnetic field 
-strength symbolized as $\mu _{0}H$. Use the center dot to separate 
-compound units, e.g., ``A$\cdot $m$^{2}$.''
 
 \subsection{Set up for testing our sensing system}
 The SI unit for magnetic field strength 
@@ -138,30 +105,28 @@ We have used supervised machine learning to predict the QD concentration from th
 
 We have tried 5 distinct types of ML algorithms to predict the QD concentration. In this section we provide a shot description and key properties of each ML algorithm.
 (following the style of Subhendu Pandit paper)
+discuss multivariate and univariate here no need for distinct section 
 
-\subsubsection{Univariate Models}
-{One possible appraoch to predict multiple QD types is to train a model for each emitter. During inference time we run both models in sequence. 
+\subsubsection{Model Definition}
+{One possible approach to predict multiple QD types is to train a model for each emitter. During inference time we run both models in sequence. 
 
 
-"Gaussian process regression is nonparametric (i.e. not limited by a functional form), so rather than calculating the probability distribution of parameters of a specific function, GPR calculates the probability distribution over all admissible functions that fit the data. However, similar to the above, we specify a prior (on the function space), calculate the posterior using the training data, and compute the predictive posterior distribution on our points of interest."
+"\textbf{Gaussian process regression} is nonparametric (i.e. not limited by a functional form), so rather than calculating the probability distribution of parameters of a specific function, GPR calculates the probability distribution over all admissible functions that fit the data. However, similar to the above, we specify a prior (on the function space), calculate the posterior using the training data, and compute the predictive posterior distribution on our points of interest."
 
-"Regression NN predict an output variable as a function of the inputs. The input features (independent variables) can be categorical or numeric types, however, for regression NN, we require a numeric dependent variable. If the output variable is a categorical variable (or binary) the ANN will function as a classifier"
+"\textbf{Regression NN} predict an output variable as a function of the inputs. The input features (independent variables) can be categorical or numeric types, however, for regression NN, we require a numeric dependent variable. If the output variable is a categorical variable (or binary) the ANN will function as a classifier"
 
-" random forest is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree"
+" \textbf{random forest} is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree"
 
-" Support Vector Regression is a supervised learning algorithm that is used to predict discrete values. Support Vector Regression uses the same principle as the SVMs. The basic idea behind SVR is to find the best fit line. In SVR, the best fit line is the hyperplane that has the maximum number of points."
+" \textbf{Support Vector Regression} is a supervised learning algorithm that is used to predict discrete values. Support Vector Regression uses the same principle as the SVMs. The basic idea behind SVR is to find the best fit line. In SVR, the best fit line is the hyperplane that has the maximum number of points."
 
-"Linear regression is a linear model, e.g. a model that assumes a linear relationship between the input variables (x) and the single output variable (y). More specifically, that y can be calculated from a linear combination of the input variables (x).
+"\textbf{Linear regression} is a linear model, e.g. a model that assumes a linear relationship between the input variables (x) and the single output variable (y). More specifically, that y can be calculated from a linear combination of the input variables (x).
 
 When there is a single input variable (x), the method is referred to as simple linear regression. When there are multiple input variables, literature from statistics often refers to the method as multiple linear regression."
 
 
 }
 
-\subsubsection{Multivariate  Models}
-{Here we briefly discuss the extensions required to make some of the models multivariate  
 
-}
 
 \subsubsection{Frequentist vs Bayesian Models}
 {here we discuss the key differences in assumptions and applications between bayesian methods and frequentist methods. 
