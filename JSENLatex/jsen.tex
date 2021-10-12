@@ -40,9 +40,7 @@ Tsukuba, Japan (e-mail: author@nrim.go.jp).}}
 \includegraphics[width=1.7in]{22.png}%
 \end{wrapfigure}%
 \begin{abstract}
-Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Consider, for example, a patient coming to a clinic with respiratory symptoms. The physician may take a sample from the patient, and if they have access to single-plex tests only, they will test for the pathogen they suspect is most likely responsible for the respiratory problem. If the test comes out negative, they will need another sample and will have to test for another pathogen. In essence, the physician is using an elimination process for diagnosis. A multiplex test that screens the patient for multiple pathogens simultaneously will expedite the diagnosis process.  
-Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. They have, for example, been used to quantify the amount of cholera toxin, ricin, shiga-like toxin 1, and staphylococcal enterotoxin B in a sample. Multiplex analysis based on quantum dots have also been developed to identify illicit substances such as dexamethasone, gentamicin, clonazepam, medroxyprogesterone acetate, and ceftiofur. More recently, they have been applied to detect multiple tumor markers, or to monitor the activity of protease enzymes such as trypsin, chymotrypsin and enterokinase.
- As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
+Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications by combining our sensor readings with ML algorithm running a Raspberry Pi Zero. We implement a 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a model. 
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -67,25 +65,14 @@ Being available in multiple colors and able to be conjugated to biomolecul
  As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
 
 \subsection{Machine learning background}
-kkk
-In order to make rapid predictions with some acquired training data, we use some popular machine learning algorithms. Machine learning has been used for  detection, quantification, and classification of past/current events or prediction of future ones.  (11), (5). Statistical learning allows for the modelling of complicated relationships between the input and output of a sensor 6, (self-)calibration 7, 8, and improving the overall reliability and accuracy of a sensor system 9, 10. Machine learning algorithms can be staggered for improved performance. For instance, in 11 the performance of capacitive proximity sensors was enhanced through multiple signal processing levels. After detecting the presence of an object (model-based), the system determined its shape (categorization) and then utilized a library of measured values to accurately estimate the distance to the object (regression). This combination of deterministic and statistical models was shown to improve sensor accuracy significantly. In sensing applications, the ML algorithms are typically
-implemented digitally on general-purpose microprocessors. Recently, the concept of reservoir computing (RC) has emerged as an opportunity to recognize context based on the physical response of the systems rather than nonlinear transformation of features in the digital domain 12–14. Careful system design
+
+In order to make rapid predictions with some acquired training data, we use some popular machine learning algorithms. Machine learning has been used for  detection, quantification, and classification of past/current events, prediction of future ones or even self-calibratio (cite 1,2,3,4). For instance, *give a few examples*. In sensing applications, the ML algorithms are typically implemented digitally on general-purpose microprocessors (cite ML for sensor data), or (smart phone application?). In this paper we implement combine our sensor readings with ML algorithm using a cheap and widely accessible SBC: Raspberry Pi Zero. We implement a 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a mode. 
 \\
 
 \section{Methods}
-Use either SI (MKS) or CGS as primary units. (SI units are strongly 
-encouraged.) English units may be used as secondary units (in parentheses). 
-This applies to papers in data storage. For example, write ``15 
-Gb/cm$^{2}$ (100 Gb/in$^{2})$.'' An exception is when 
-English units are used as identifiers in trade, such as ``3\textonehalf-in 
-disk drive.'' Avoid combining SI and CGS units, such as current in amperes 
-and magnetic field in oersteds. This often leads to confusion because 
-equations do not balance dimensionally. If you must use mixed units, clearly 
-state the units for each quantity in an equation.
 
 \subsection{Sensor System}
 Our system uses a commercially available multispectral sensor (Adafruit AS7341). Its data are read and processed with a standard I2C bus on an appropriate microcontroller, which was a Raspberry Pi Zero in our case. The system can be tailored to different applications since the software to run it is written in the Python language and can easily be modified. The microcontroller gives users the ability to attach a screen to view the data, or to transfer the results to another location via WiFi.
- 
 
 
 \subsection{Set up for testing our sensing system}
@@ -101,30 +88,27 @@ It is good practice to explain the significance of the figure in the caption.}
 
 \subsection{Description of Machine learning algorithms}
 
-We have used supervised machine learning to predict the QD concentration from the eight wavelength intensities. For each observation $x_i$ for $i = 1,2,..,n$ there is an associated response measurement $y_i$. The goal during training, is to approximate a mapping function from the input $x$ to the output $y$ variable, so that when given a new set of unknown input data, the algorithm can correctly predict the correct output variable.  To avoid potential overfitting of the data, we have used 10fold-cross validation scheme.
+We use supervised machine learning to predict the QD concentration from the eight wavelength intensities. For each observation $x_i$ for $i = 1,2,..,n$ there is an associated response measurement $y_i$. The goal during training, is to approximate a mapping function from the input $x$ to the output $y$ variable, so that when given a new set of unknown input data, the algorithm can correctly predict the correct output variable.  To avoid potential overfitting of the data, we have use a 10 fold-cross validation scheme.
+(some info about regression vs classifcastion?)
+We have tried 5 distinct types of common ML algorithms to predict the QD concentration. In this section we provide a shot description and key properties of each ML algorithm.
+(following the style of Subhendu Pandit paper) 
 
-We have tried 5 distinct types of ML algorithms to predict the QD concentration. In this section we provide a shot description and key properties of each ML algorithm.
-(following the style of Subhendu Pandit paper)
-discuss multivariate and univariate here no need for distinct section 
+One possible approach to predict multiple QD types is to train a model for each emitter of interest, this approach is flexible but more computationally and memory expensive. If using this scheme, during inference time we run all models in sequence. Alternatively, we could train our models to predict in a multivariate fashion, we discuss this possibility according to each algorithm. 
 
-\subsubsection{Model Definition}
-{One possible approach to predict multiple QD types is to train a model for each emitter. During inference time we run both models in sequence. 
+\textbf{Gaussian process regression: } is nonparametric, meaning the data is not assumed to belong to any particular parametric family of probability distributions (cite x), so rather than calculating the probability distribution of parameters of a specific function, gaussian process regression calculates the probability distribution over all admissible functions that fit the data. However, we specify a function space prior, calculate the posterior using the training data, and compute the predictive posterior distribution on our points of interest.GP has been proven to be an effective method for
+nonlinear problems due to many desirable properties, such as a clear structure with Bayesian interpretation,
+a simple integrated approach of obtaining and expressing uncertainty in predictions and the capability of
+capturing a wide variety of data feature by hyper-parameters [13, 2]. 
+The classical GP model can be only used to deal with a single output or single response problem however there are various ways to apply gaussian process regression with multiple response variables (cite)
 
-
-"\textbf{Gaussian process regression} is nonparametric (i.e. not limited by a functional form), so rather than calculating the probability distribution of parameters of a specific function, GPR calculates the probability distribution over all admissible functions that fit the data. However, similar to the above, we specify a prior (on the function space), calculate the posterior using the training data, and compute the predictive posterior distribution on our points of interest."
-
-"\textbf{Regression NN} predict an output variable as a function of the inputs. The input features (independent variables) can be categorical or numeric types, however, for regression NN, we require a numeric dependent variable. If the output variable is a categorical variable (or binary) the ANN will function as a classifier"
-
-" \textbf{random forest} is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree"
-
-" \textbf{Support Vector Regression} is a supervised learning algorithm that is used to predict discrete values. Support Vector Regression uses the same principle as the SVMs. The basic idea behind SVR is to find the best fit line. In SVR, the best fit line is the hyperplane that has the maximum number of points."
-
-"\textbf{Linear regression} is a linear model, e.g. a model that assumes a linear relationship between the input variables (x) and the single output variable (y). More specifically, that y can be calculated from a linear combination of the input variables (x).
-
-When there is a single input variable (x), the method is referred to as simple linear regression. When there are multiple input variables, literature from statistics often refers to the method as multiple linear regression."
+\textbf{Regression MLP: } Multi-level Perceptron (MLP) is a neural network connecting several layers of input nodes as a directed graph, tasks with predicting an output variable as a function of the inputs. The input features can be categorical or numeric types, however, for regression NN, we require a numeric dependent variable. The multiple layers and non-linear activation allow the MLP to learn non linear features. To make multivariate predictions we simply increase number of neurons in our output layer. 
 
 
-}
+\textbf{Random Forest: } A random forest fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. Random forests also require less hyper-parameter tuning than other methods discussed here, with the exception of Linear regression.  To make multivariate predictions we simply increase the output layer
+
+\textbf{SVM Regression: } Support Vector Machine is a supervised learning algorithm that is used to predict discrete values. Support Vector Regression uses the same principle as the SVMs. A support-vector machine constructs a hyperplane or set of hyperplanes in a high- or infinite-dimensional space, which can be used for classification, regression, or other tasks like outliers detection (cite). Im actually not sure how to do multivariate for this example yet. 
+
+\textbf{Linear regression: } In a linear model, e.g. a model that assumes a linear relationship between the input variables (x) and the single output variable (y). More specifically, that y can be calculated from a linear combination of the input variables (x). When there is a single input variable, the method is referred to as simple linear regression otherwise we have multivariate example. Furthermore, to make multiple output predictions we extend linear regression however this can be shown to be same as independently solving a separate regression problem for each response variable.
 
 
 
