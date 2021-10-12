@@ -26,7 +26,7 @@ class Data:
         weight = np.ones((1, kernel_size))
         im_h, im_w = image.shape
         if im_w < kernel_size:
-            return np.array(image.mean())[None]
+            return np.array([image.mean()])[None]
         f_h, f_w = weight.shape
         out_shape = (1 + (im_h - f_h) // stride, 1 + (im_w - f_w) // stride, f_h, f_w)
         out_strides = (image.strides[0] * stride, image.strides[1] * stride, image.strides[0], image.strides[1])
