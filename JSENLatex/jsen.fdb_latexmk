@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex jsen"] 1634589837 "jsen.aux" "jsen.bbl" "jsen" 1634589838
+["bibtex jsen"] 1634592463 "jsen.aux" "jsen.bbl" "jsen" 1634592464
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "jsen.aux" 1634589837 4736 aecd3a794e565e1f84d7ad365278de71 "pdflatex"
+  "jsen.aux" 1634592463 4980 3f08f5a4ab1193af96ec9348d5f22293 "pdflatex"
   "mybib.bib" 1634589722 22904 6817a0d8e619c852275cc37b81a15fce ""
   (generated)
-  "jsen.bbl"
   "jsen.blg"
-["pdflatex"] 1634589837 "jsen.tex" "jsen.pdf" "jsen" 1634589838
+  "jsen.bbl"
+["pdflatex"] 1634592463 "jsen.tex" "jsen.pdf" "jsen" 1634592464
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -117,17 +117,18 @@
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
   "22.png" 1633540673 31801 4a8b1b41850cba0265504f67a389aa6e ""
+  "469800.jpg" 1634592285 152427 875aa915608c150122c22163c95f04d0 ""
   "LOGO-jsen-web.eps" 1631986988 49307 e7082f545ab1d0a8057917736220841d ""
   "a1.png" 1632000182 17161 a657f03945791525b16e5f9d8c991abf ""
   "a2.png" 1632000182 17161 a657f03945791525b16e5f9d8c991abf ""
   "a3.png" 1632000182 17161 a657f03945791525b16e5f9d8c991abf ""
   "fig1.png" 1632068575 104431 2fb25664e643b855d3c294f3ae01f24e ""
   "ieeecolor.cls" 1634589303 219945 fedaa0d2f51d24b1a10b36f6628bc168 ""
-  "jsen.aux" 1634589837 4736 aecd3a794e565e1f84d7ad365278de71 "pdflatex"
-  "jsen.bbl" 1634589837 1164 bf66bcbc80f2d72fca629559937bad10 "bibtex jsen"
+  "jsen.aux" 1634592463 4980 3f08f5a4ab1193af96ec9348d5f22293 "pdflatex"
+  "jsen.bbl" 1634592463 1164 bf66bcbc80f2d72fca629559937bad10 "bibtex jsen"
   "jsen.sty" 1631986988 194 f631e3cbadef91d3bbac8bb0024e0448 ""
-  "jsen.tex" 1634589835 42508 038b17ebca413131839e20a45b6e81f4 ""
+  "jsen.tex" 1634592462 43847 a610a08c05b85b3adba1a2298932ae6d ""
   (generated)
+  "jsen.aux"
   "jsen.pdf"
   "jsen.log"
-  "jsen.aux"

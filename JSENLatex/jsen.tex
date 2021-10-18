@@ -67,7 +67,7 @@ Multiplex assays usually use probes with different spectroscopic signatures to 
 Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. They have, for example, been used to quantify the amount of cholera toxin, ricin, shiga-like toxin 1, and staphylococcal enterotoxin B in a sample. Multiplex analysis based on quantum dots have also been developed to identify illicit substances such as dexamethasone, gentamicin, clonazepam, medroxyprogesterone acetate, and ceftiofur. More recently, they have been applied to detect multiple tumor markers, or to monitor the activity of protease enzymes such as trypsin, chymotrypsin and enterokinase.
  As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications.  
 
-\subsection{Machine learning background}
+\subsection{Machine learning and Sensors}
 
 In order to make rapid predictions with some acquired training data, we use some popular machine learning algorithms. Machine learning has been used for  detection, quantification, and classification of past/current events, prediction of future ones or even self-calibratio \cite{Cho2014} . For instance, *give a few examples*. In sensing applications, the ML algorithms are typically implemented digitally on general-purpose microprocessors (cite ML for sensor data), or (smart phone application?). In this paper we implement combine our sensor readings with ML algorithm using a cheap and widely accessible SBC: Raspberry Pi Zero. We implement a 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a mode. 
 \\
@@ -76,7 +76,12 @@ In order to make rapid predictions with some acquired training data, we use some
 
 \subsection{Sensor System}
 Our system uses a commercially available multispectral sensor (Adafruit AS7341). Its data are read and processed with a standard I2C bus on an appropriate microcontroller, which was a Raspberry Pi Zero in our case. The system can be tailored to different applications since the software to run it is written in the Python language and can easily be modified. The microcontroller gives users the ability to attach a screen to view the data, or to transfer the results to another location via WiFi.
-
+\begin{figure}[!t]
+\centerline{\includegraphics[width=7cm]{469800.jpg}}
+\caption{Magnetization as a function of applied field.
+It is good practice to explain the significance of the figure in the caption.}
+\label{fig3}
+\end{figure}
 
 \subsection{Set up for testing our sensing system}
 The SI unit for magnetic field strength 
@@ -115,18 +120,19 @@ The classical GP model can be only used to deal with a single output or single r
 
 
 
-\subsubsection{Frequentist vs Bayesian Models}
-{here we discuss the key differences in assumptions and applications between bayesian methods and frequentist methods. 
-Also discuss confidence intervals, and some considerations when comparing models.}
+\subsection{Frequentist vs Bayesian Models}
+Here we discuss the key differences in assumptions and applications between bayesian methods and frequentist methods. 
+"Both frequentist and Bayesian are statistical approaches to learning from data. But there is a broad distinction between the frequentist and Bayesian. 
+Bayesian statistics concerns itself with trying to represent your beliefs, the confidence intervals describing your initial (prior) belief and the update in your belief as you observe new data (thus creating posterior belief).
 
+ The frequentist learning is only depended on the given data, frequentist statistics concerns itself with methods that have 'long run' guarantees. For example, if you wake up every day and perform an experiment on some new data and create a 95\% confidence interval around some quantity of interest then indeed, you will correctly trap 95\% of those quantities, no matter of your personal belief.
 
 \subsection{Training Details}
 Here we can discuss general training details. Epochs, libraries we used. 
 and other compute details
 \subsubsection{Hyper-parameter Optimization}
-{Every algorithm attempted here has various hyper-parameters that affect the corresponding optimization process. 
-These can have a significant difference in learning, so its important we employ a search to find optimal hyper-parameters. I think we can 
-make a table in appendix showing optimal hyperparameters   }
+{Machine learning models have several hyperparameters that affect the corresponding optimization. "Often the general effects of hyperparameters on a model are known, but how to best set a hyperparameter and combinations of interacting hyperparameters for a given dataset is challenging."
+These can have a significant difference in learning, so its important we employ a search to find optimal hyper-parameters. In order to automate this process we create a GridSearch procedure for each one of the models attempted.  Refer to the appendix for optimal hyperparameters  found during training }
 
 
 \begin{figure*}[!t]
@@ -135,7 +141,6 @@ make a table in appendix showing optimal hyperparameters   }
 It is good practice to explain the significance of the figure in the caption.}
 \label{fig1}
 \end{figure*}
-
 
 
 
@@ -214,6 +219,7 @@ should have no shades or half-tones of gray, only black and white.}
 \subsubsection{Confidence Intervals for retraining}
 {Figures that are composed of only black lines and shapes. These figures 
 should have no shades or half-tones of gray, only black and white.}
+In Bayesian statistics, a credible interval is an interval within which an unobserved parameter value falls with a particular probability. 
 
 
 \section{Conclusion}
