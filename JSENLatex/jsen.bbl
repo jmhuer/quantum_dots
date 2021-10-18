@@ -1,10 +1,25 @@
 \begin{thebibliography}{1}
 
-\bibitem{Vonrueden2021}
-L.~Vonrueden, S.~Mayer, K.~Beckh, B.~Georgiev, S.~Giesselbach, R.~Heese,
-  B.~Kirsch, M.~Walczak, J.~Pfrommer, A.~Pick, R.~Ramamurthy, J.~Garcke,
-  C.~Bauckhage, and J.~Schuecker, ``{Informed Machine Learning - A Taxonomy and
-  Survey of Integrating Prior Knowledge into Learning Systems},'' {\em IEEE
-  Transactions on Knowledge and Data Engineering}, pp.~1--20, 2021.
+\bibitem{Wang2020}
+D.~Wang, F.~Lian, S.~Yao, Y.~Liu, J.~Wang, X.~Song, L.~Ge, Y.~Wang, Y.~Zhao,
+  J.~Zhang, C.~Zhao, and K.~Xu, ``{Simultaneous detection of three foodborne
+  pathogens based on immunomagnetic nanoparticles and fluorescent quantum
+  dots},'' {\em ACS Omega}, vol.~5, no.~36, pp.~23070--23080, 2020.
+
+\bibitem{Esteve-Turrillas2013}
+F.~A. Esteve-Turrillas and A.~Abad-Fuentes, ``{Applications of quantum dots as
+  probes in immunosensing of small-sized analytes},'' {\em Biosensors and
+  Bioelectronics}, vol.~41, no.~1, pp.~12--29, 2013.
+
+\bibitem{Cho2014}
+I.~H. Cho, L.~Mauer, and J.~Irudayaraj, ``{In-situ fluorescent immunomagnetic
+  multiplex detection of foodborne pathogens in very low numbers},'' {\em
+  Biosensors and Bioelectronics}, vol.~57, pp.~143--148, 2014.
+
+\bibitem{Zhao2009}
+Y.~Zhao, M.~Ye, Q.~Chao, N.~Jia, Y.~Ge, and H.~Shen, ``{Simultaneous detection
+  of multifood-borne pathogenic bacteria based on functionalized quantum dots
+  coupled with immunomagnetic separation in food samples},'' {\em Journal of
+  Agricultural and Food Chemistry}, vol.~57, no.~2, pp.~517--524, 2009.
 
 \end{thebibliography}

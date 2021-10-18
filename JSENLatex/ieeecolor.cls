@@ -3611,6 +3611,7 @@ which is provided to fool Hyperref.}}
 % \let\NAT@parse\undefined
 
 
+
 % V1.6 class files should always provide these
 \def\newblock{\hskip .11em\@plus.33em\@minus.07em}
 \let\@openbib@code\@empty

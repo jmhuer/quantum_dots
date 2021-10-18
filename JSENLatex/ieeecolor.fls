@@ -1,0 +1,12 @@
+PWD /Users/juanhuerta/personal_projects/code/quantum_dots/JSENLatex
+INPUT /usr/local/texlive/2019/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT ieeecolor.cls
+OUTPUT ieeecolor.log
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def

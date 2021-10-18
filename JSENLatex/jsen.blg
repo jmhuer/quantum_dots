@@ -2,75 +2,47 @@ This is BibTeX, Version 0.99d (TeX Live 2019)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: jsen.aux
 The style file: ieeetr.bst
-Database file #1: jsen.bib
+Database file #1: mybib.bib
 Warning--I didn't find a database entry for "b3"
-Warning--I didn't find a database entry for "b1"
-Warning--I didn't find a database entry for "b2"
-Warning--I didn't find a database entry for "b5"
-Warning--I didn't find a database entry for "b6"
-Warning--I didn't find a database entry for "b7"
-Warning--I didn't find a database entry for "b8"
-Warning--I didn't find a database entry for "b9"
-Warning--I didn't find a database entry for "b10"
-Warning--I didn't find a database entry for "b13"
-Warning--I didn't find a database entry for "b14"
-Warning--I didn't find a database entry for "b16"
-Warning--I didn't find a database entry for "b17"
-Warning--I didn't find a database entry for "b18"
-Warning--I didn't find a database entry for "b19"
-Warning--I didn't find a database entry for "b20"
-Warning--I didn't find a database entry for "b21"
-Warning--I didn't find a database entry for "b22"
-Warning--I didn't find a database entry for "b23"
-Warning--I didn't find a database entry for "b24"
-Warning--I didn't find a database entry for "b25"
-Warning--I didn't find a database entry for "b26"
-Warning--I didn't find a database entry for "b27"
-Warning--I didn't find a database entry for "b29"
-Warning--I didn't find a database entry for "b30"
-Warning--I didn't find a database entry for "b31"
-Warning--I didn't find a database entry for "b32"
-Warning--I didn't find a database entry for "b33"
-Warning--I didn't find a database entry for "b34"
-You've used 1 entry,
+You've used 4 entries,
             1876 wiz_defined-function locations,
-            512 strings with 4013 characters,
-and the built_in function-call counts, 433 in all, are:
-= -- 27
-> -- 44
+            509 strings with 4522 characters,
+and the built_in function-call counts, 1578 in all, are:
+= -- 156
+> -- 77
 < -- 0
-+ -- 15
-- -- 14
-* -- 43
-:= -- 83
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 1
++ -- 27
+- -- 23
+* -- 127
+:= -- 230
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 13
-empty$ -- 26
-format.name$ -- 14
-if$ -- 88
+cite$ -- 4
+duplicate$ -- 70
+empty$ -- 124
+format.name$ -- 23
+if$ -- 372
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 6
-num.names$ -- 1
-pop$ -- 3
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 5
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 8
+skip$ -- 60
 stack$ -- 0
-substring$ -- 19
-swap$ -- 5
+substring$ -- 136
+swap$ -- 38
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 4
-width$ -- 2
-write$ -- 11
-(There were 29 warnings)
+while$ -- 16
+width$ -- 5
+write$ -- 45
+(There was 1 warning)
