@@ -3,40 +3,39 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: jsen.aux
 The style file: ieeetr.bst
 Database file #1: mybib.bib
-Warning--I didn't find a database entry for "b3"
 You've used 4 entries,
             1876 wiz_defined-function locations,
-            509 strings with 4522 characters,
-and the built_in function-call counts, 1578 in all, are:
-= -- 156
-> -- 77
+            511 strings with 4514 characters,
+and the built_in function-call counts, 1494 in all, are:
+= -- 147
+> -- 74
 < -- 0
-+ -- 27
-- -- 23
-* -- 127
-:= -- 230
++ -- 26
+- -- 22
+* -- 122
+:= -- 222
 add.period$ -- 4
 call.type$ -- 4
 change.case$ -- 4
 chr.to.int$ -- 0
 cite$ -- 4
-duplicate$ -- 70
-empty$ -- 124
-format.name$ -- 23
-if$ -- 372
+duplicate$ -- 66
+empty$ -- 118
+format.name$ -- 22
+if$ -- 351
 int.to.chr$ -- 0
 int.to.str$ -- 4
 missing$ -- 4
 newline$ -- 15
 num.names$ -- 4
-pop$ -- 5
+pop$ -- 4
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 60
+skip$ -- 55
 stack$ -- 0
-substring$ -- 136
-swap$ -- 38
+substring$ -- 120
+swap$ -- 34
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
@@ -44,5 +43,4 @@ type$ -- 0
 warning$ -- 0
 while$ -- 16
 width$ -- 5
-write$ -- 45
-(There was 1 warning)
+write$ -- 46

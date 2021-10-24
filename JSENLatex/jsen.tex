@@ -69,7 +69,10 @@ Being available in multiple colors and able to be conjugated to biomolecul
 
 \subsection{Machine learning and Sensors}
 
-In order to make rapid predictions with some acquired training data, we use some popular machine learning algorithms. Machine learning has been used for  detection, quantification, and classification of past/current events, prediction of future ones or even self-calibratio \cite{Cho2014} . For instance, *give a few examples*. In sensing applications, the ML algorithms are typically implemented digitally on general-purpose microprocessors (cite ML for sensor data), or (smart phone application?). In this paper we implement combine our sensor readings with ML algorithm using a cheap and widely accessible SBC: Raspberry Pi Zero. We implement a 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a mode. 
+In order to make predictions from a sensor input, we train statistical models on a training data set and test on unseen data to validate predictive power. We try various popular machine learning algorithms with different assumptions and requirements. Machine learning has been used for detection, quantification (regression task cite) and classification of past/current events\cite{Shirmohammadli2021}, prediction of future ones or even self-calibration (Shirmohammadli2021 7\&8).  
+
+
+In sensing applications, the ML algorithms are usually implemented digitally on general-purpose microprocessors\cite{Shirmohammadli2021}, or (smart phone application cite). Both approaches have advantages and disadvantages. The notable limitations of a smart phone implementation is the difficulty redesigning applications and implementing new features. In this study we use Raspberry Pi (ARM Cortex A Series microprocessor), this is a cheap and widely accessible Single Board Computer (SBC). This device can alleviate some of the limitations of smart phone detection, and run a simple python programs with minimal set up.  We implement 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a mode. 
 \\
 
 \section{Methods}
@@ -121,19 +124,23 @@ The classical GP model can be only used to deal with a single output or single r
 
 
 \subsection{Frequentist vs Bayesian Models}
-Here we discuss the key differences in assumptions and applications between bayesian methods and frequentist methods. 
-"Both frequentist and Bayesian are statistical approaches to learning from data. But there is a broad distinction between the frequentist and Bayesian. 
-Bayesian statistics concerns itself with trying to represent your beliefs, the confidence intervals describing your initial (prior) belief and the update in your belief as you observe new data (thus creating posterior belief).
-
- The frequentist learning is only depended on the given data, frequentist statistics concerns itself with methods that have 'long run' guarantees. For example, if you wake up every day and perform an experiment on some new data and create a 95\% confidence interval around some quantity of interest then indeed, you will correctly trap 95\% of those quantities, no matter of your personal belief.
+There are a few key differences in assumptions and applications between bayesian methods and frequentist methods. Both frequentist and Bayesian are statistical approaches to learning from data. However, Bayesian statistics concerns itself with trying to represent beliefs, the confidence intervals describing your initial (prior) belief and the update in your belief as you observe new data know as a posterior belief.
+The frequentist learning only depends on the observed data, frequentist statistics concerns itself with 'long run' (frequency) guarantees. For example, if we perform a sensor reading experiment on new data and create a 95\% confidence interval around some quantity of interest then 95\% of the readings will be in that confident interval, regardless of any prior expectations. 
+In comparison, Bayesian method says the parameter's value is fixed but has been chosen from some probability distribution. we collect some data, and then calculate the probability of different values of the parameter given the data. This new probability distribution is called the "a posteriori probability" or simply the "posterior." Bayesian approaches can summarize their uncertainty by giving a range of values on the posterior probability distribution that includes 95\% of the probability -- this is called a 95\% credibility interval.
 
 \subsection{Training Details}
-Here we can discuss general training details. Epochs, libraries we used. 
-and other compute details
+Here we can discuss general training details.
+
 \subsubsection{Hyper-parameter Optimization}
 {Machine learning models have several hyperparameters that affect the corresponding optimization. "Often the general effects of hyperparameters on a model are known, but how to best set a hyperparameter and combinations of interacting hyperparameters for a given dataset is challenging."
 These can have a significant difference in learning, so its important we employ a search to find optimal hyper-parameters. In order to automate this process we create a GridSearch procedure for each one of the models attempted.  Refer to the appendix for optimal hyperparameters  found during training }
 
+
+\subsubsection{Confidence Intervals for retraining}
+{
+As discussed in section 3B. One of the major distinctions with Bayesian framework is is the probabilistic interpretation of a credibility interval. This allows for point-wise specific uncertainty, that can be used for flagging areas in the QD concentration range that have a high posterion uncertainty. 
+
+}
 
 \begin{figure*}[!t]
 \centerline{\includegraphics[width=15cm]{fig1.png}}
@@ -157,28 +164,28 @@ Trainable Parameters \\
 \hline
 Gaussian Process Reggression & 
 Univariate& 
-4.5   &
+8.5   &
 N/A\textsuperscript{**} \\
 Linear Regression  & 
 Univariate & 
 4.5   &
-1 \\
+2 \\
 Bayesian Regression & 
 Univariate & 
-4.5   &
-1 \\
+3.5   &
+N/A\textsuperscript{**}  \\
 Random Forest Regession & 
 Univariate & 
-4.5   &
-1 \\
+1.1   &
+2400 \\
 Neural Network & 
 Univariate & 
-4.5   &
-1 \\
+9.0   &
+340 \\
 Neural Network & 
 Multiivariate & 
-4.5   &
-1 \\
+15.0   &
+2400 \\
 \hline
 \multicolumn{4}{p{251pt}}{*Accuracy is measure of MSE for 10-fold Cross val. All models were tested using the same cross validation dataset breakdown. For univaraite models accuracy is the average between the two models}\\
 \multicolumn{4}{p{251pt}}{**Bayesian methods are non-parametric and therefore have no trainable parameters}\\
@@ -202,34 +209,25 @@ applications and extensions.
 {
 kk A Cost Function is used to evaluate the performance of a Model on data. Mean squared error (MSE) is a common measure for evaluating the performance of a model which sums (or averages) the square of the difference between estimated and true values over the population. The main motivation for using MSE is its differentiability which simplifies the Cost Function minimization process. An alternative metric is the Mean absolute error (MAE) (i.e., the sum/average of absolute values of the differences between estimations and observed outputs) which is sometimes employed for sequential/temporal data processing. As mentioned before, training is achieved through by adjusting the weights (i.e., elements of vector ?? in Eq. 1) kk. }
 
-
 Here we discuss cross validation accuracy and BIC, AIC criterial? 
 
-\subsubsection{Confidence interval for Bayesian Methods}
+\subsubsection{Reporting Uncertainty}
 {Figures that are composed of only black lines and shapes. These figures 
 should have no shades or half-tones of gray, only black and white.}
 
 
 \subsection{Making Predictions}
+\textbf{Raspberry Pi Details: }
+After training a model, we do a running mean of the last 5 sensor readings, and run inference on the selected model of choice. It is important to fix the 
+the placement and calibration of the sensor according to the settings during data collection. We store the raw data and predictions in a csv file.
 
-\subsubsection{Raspberry Pi Details}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
 
-\subsubsection{Confidence Intervals for retraining}
-{Figures that are composed of only black lines and shapes. These figures 
-should have no shades or half-tones of gray, only black and white.}
-In Bayesian statistics, a credible interval is an interval within which an unobserved parameter value falls with a particular probability. 
+
 
 
 \section{Conclusion}
-A conclusion section is not required. Although a conclusion may review the 
-main points of the paper, do not replicate the abstract as the conclusion. A 
-conclusion might elaborate on the importance of the work or suggest 
-applications and extensions. A conclusion section is not required. Although a conclusion may review the 
-main points of the paper, do not replicate the abstract as the conclusion. A 
-conclusion might elaborate on the importance of the work or suggest 
-applications and extensions. 
+Multiplex assays usually use probes with different spectroscopic signatures to detect two or more analytes simultaneously. By allowing researchers to test for multiple markers per sample, they give a more reliable picture of what is happening. Being available in multiple colors and able to be conjugated to biomolecules, quantum dots are ideal as labels in multiplex assays. As a proof-of-concept, we demonstrate the capability of these multispectral sensors, using various machine learning appraoches, for multiplex detection by using mixtures of quantum dots of two different colors. We show that the sensors can detect quantum dot concentrations relevant to biological applications by combining our sensor readings with ML algorithm running a Raspberry Pi Zero. We implement a 5 distinct types of ML algorithms to predict the QD concentration, along with various tools for training, evaluation, and utilizing a model. 
+\\
 
 \appendices
 
@@ -247,29 +245,6 @@ unnumbered footnote on the first page, not here.
 \section*{References and Footnotes}
 
 \subsection{References}
-References need not be cited in text. When they are, they appear on the 
-line, in square brackets, inside the punctuation. Multiple references are 
-each numbered with separate brackets. When citing a section in a book, 
-please give the relevant page numbers. In text, refer simply to the 
-reference number. Do not use ``Ref.'' or ``reference'' except at the 
-beginning of a sentence: ``Reference \cite{b3} shows $\ldots$ .'' Please do not use 
-automatic endnotes in \emph{Word}, rather, type the reference list at the end of the 
-paper using the ``References'' style.
-
-Reference numbers are set flush left and form a column of their own, hanging 
-out beyond the body of the reference. The reference numbers are on the line, 
-enclosed in square brackets. In all references, the given name of the author 
-or editor is abbreviated to the initial only and precedes the last name. Use 
-them all; use \emph{et al.} only if names are not given. Use commas around Jr., 
-Sr., and III in names. Abbreviate conference titles. When citing IEEE 
-transactions, provide the issue number, page range, volume number, year, 
-and/or month if available. When referencing a patent, provide the day and 
-the month of issue, or application. References may not include all 
-information; please obtain and include relevant information. Do not combine 
-references. There must be only one reference with each number. If there is a 
-URL included with the print reference, it can be included at the end of the 
-reference. 
-
 Other than books, capitalize only the first word in a paper title, except 
 for proper nouns and element symbols. For papers published in translation 
 journals, please give the English citation first, followed by the original 
@@ -278,13 +253,6 @@ examples of common references. For a complete discussion of references and
 their formats, see the IEEE style manual at
 \underline{http://www.ieee.org/authortools}.
 
-\subsection{Footnotes}
-Number footnotes separately in superscript numbers.\footnote{It is recommended that footnotes be avoided (except for 
-the unnumbered footnote with the receipt date on the first page). Instead, 
-try to integrate the footnote information into the text.} Place the actual 
-footnote at the bottom of the column in which it is cited; do not put 
-footnotes in the reference list (endnotes). Use letters for table footnotes 
-(see Table \ref{table}).
 
 \section{Submitting Your Paper for Review}
 
@@ -294,88 +262,6 @@ print it in two-column format, including figures and tables. You must also
 send your final manuscript on a disk, via e-mail, or through a Web 
 manuscript submission system as directed by the society contact. You may use 
 \emph{Zip} for large files, or compress files using \emph{Compress, Pkzip, Stuffit,} or \emph{Gzip.} 
-
-Also, send a sheet of paper or PDF with complete contact information for all 
-authors. Include full mailing addresses, telephone numbers, fax numbers, and 
-e-mail addresses. This information will be used to send each author a 
-complimentary copy of the journal in which the paper appears. In addition, 
-designate one author as the ``corresponding author.'' This is the author to 
-whom proofs of the paper will be sent. Proofs are sent to the corresponding 
-author only.
-
-\subsection{Review Stage Using ScholarOne\textregistered\ Manuscripts}
-Contributions to the Transactions, Journals, and Letters may be submitted 
-electronically on IEEE's on-line manuscript submission and peer-review 
-system, ScholarOne\textregistered\ Manuscripts. You can get a listing of the 
-publications that participate in ScholarOne at 
-\underline{http://www.ieee.org/publications\_standards/publications/}\discretionary{}{}{}\underline{authors/authors\_submission.html}.
-First check if you have an existing account. If there is none, please create 
-a new account. After logging in, go to your Author Center and click ``Submit 
-First Draft of a New Manuscript.'' 
-
-Along with other information, you will be asked to select the subject from a 
-pull-down list. Depending on the journal, there are various steps to the 
-submission process; you must complete all steps for a complete submission. 
-At the end of each step you must click ``Save and Continue''; just uploading 
-the paper is not sufficient. After the last step, you should see a 
-confirmation that the submission is complete. You should also receive an 
-e-mail confirmation. For inquiries regarding the submission of your paper on 
-ScholarOne Manuscripts, please contact oprs-support@ieee.org or call +1 732 
-465 5861.
-
-ScholarOne Manuscripts will accept files for review in various formats. 
-Please check the guidelines of the specific journal for which you plan to 
-submit.
-
-You will be asked to file an electronic copyright form immediately upon 
-completing the submission process (authors are responsible for obtaining any 
-security clearances). Failure to submit the electronic copyright could 
-result in publishing delays later. You will also have the opportunity to 
-designate your article as ``open access'' if you agree to pay the IEEE open 
-access fee. 
-
-\subsection{Final Stage Using ScholarOne Manuscripts}
-Upon acceptance, you will receive an email with specific instructions 
-regarding the submission of your final files. To avoid any delays in 
-publication, please be sure to follow these instructions. Most journals 
-require that final submissions be uploaded through ScholarOne Manuscripts, 
-although some may still accept final submissions via email. Final 
-submissions should include source files of your accepted manuscript, high 
-quality graphic files, and a formatted pdf file. If you have any questions 
-regarding the final submission process, please contact the administrative 
-contact for the journal. 
-
-In addition to this, upload a file with complete contact information for all 
-authors. Include full mailing addresses, telephone numbers, fax numbers, and 
-e-mail addresses. Designate the author who submitted the manuscript on 
-ScholarOne Manuscripts as the ``corresponding author.'' This is the only 
-author to whom proofs of the paper will be sent. 
-
-\subsection{Copyright Form}
-Authors must submit an electronic IEEE Copyright Form (eCF) upon submitting 
-their final manuscript files. You can access the eCF system through your 
-manuscript submission system or through the Author Gateway. You are 
-responsible for obtaining any necessary approvals and/or security 
-clearances. For additional information on intellectual property rights, 
-visit the IEEE Intellectual Property Rights department web page at 
-\underline{http://www.ieee.org/publications\_standards/publications/rights/}\discretionary{}{}{}\underline{index.html}. 
-
-\section{IEEE Publishing Policy}
-The general IEEE policy requires that authors should only submit original 
-work that has neither appeared elsewhere for publication, nor is under 
-review for another refereed publication. The submitting author must disclose 
-all prior publication(s) and current submissions when submitting a 
-manuscript. Do not publish ``preliminary'' data or results. The submitting 
-author is responsible for obtaining agreement of all coauthors and any 
-consent required from employers or sponsors before submitting an article. 
-The IEEE Transactions and Journals Department strongly discourages courtesy 
-authorship; it is the obligation of the authors to cite only relevant prior 
-work.
-
-The IEEE Transactions and Journals Department does not publish conference 
-records or proceedings, but can publish articles related to conferences that 
-have undergone rigorous peer review. Minimally, two reviews are required for 
-every article submitted for peer review.
 
 \section{Publication Principles}
 The two types of contents of that are published are; 1) peer-reviewed and 2) 

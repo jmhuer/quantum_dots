@@ -1,7 +1,13 @@
 # Fdb version 3
-["pdflatex"] 0 "ieeecolor.cls" "ieeecolor.pdf" "ieeecolor" 0
+["pdflatex"] 1634589211 "ieeecolor.cls" "ieeecolor.pdf" "ieeecolor" 1634589211
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def" 1515537368 17334 520b9b85ad8a2a48eda3f643e27a5179 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty" 1523134385 7028 112f909feb676788e7ea1c5b0b76320f ""
+  "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1557092114 35484 cb1661360667bf4db662a8895053b554 ""
+  "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
+  "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
   "ieeecolor.aux" 1634589202 32 3985256e7290058c681f74d7a3565a19 ""
-  "ieeecolor.cls" 0 -1 0 ""
+  "ieeecolor.cls" 1634589206 219944 16d157a44b27ab676675957eb7abc811 ""
   (generated)
   "ieeecolor.pdf"
   "ieeecolor.log"
