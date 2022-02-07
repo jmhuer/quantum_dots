@@ -9,10 +9,10 @@
 # #from tkinter import *
 # #import tkinter.font
 # import statistics
-from Inference.utils import Data
+from utils import Data
 # load the model from disk
 import pickle
-
+import numpy as np
 #Initialize the LED
 # #led = digitalio.DigitalInOut(board.D13)
 # #led.direction= digitalio.Direction.OUTPUT
@@ -22,7 +22,8 @@ import pickle
 # sensor = AS7341(i2c)
 # #sensor.conversion_mode = sensor.MODE_2
 #
-from .models import lr_reg ,rf_reg ,svr, gp
+
+from models import lr_reg ,rf_reg ,svr, gp
 
 
 def load_model(filename):
@@ -37,12 +38,13 @@ def inference(model, X):
     :param X:
     :return: results
     '''
-    result = model.predict(X)
+    result = model.predict(X.reshape(-1,1).T)
     return result
 
 d = Data()
 
 model = load_model("finalized_model.sav")
+print(model)
 while True:
     _ = input("Press Enter to collect datapoint")
     datapoint = {"415nm": 1,
