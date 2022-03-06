@@ -1,11 +1,11 @@
 # #import matplotlib.pyplot as plt
-# import time
-# import board
-# import busio
+import time
+import board
+import busio
 # #import digitalio
 # #import csv
 # #from adafruit_as726x import Adafruit_AS726x
-# from adafruit_as7341 import AS7341
+from adafruit_as7341 import AS7341
 # #from tkinter import *
 # #import tkinter.font
 # import statistics
@@ -18,8 +18,8 @@ import numpy as np
 # #led.direction= digitalio.Direction.OUTPUT
 #
 # #Initialize i2c and sensor
-# i2c = busio.I2C(board.SCL, board.SDA)
-# sensor = AS7341(i2c)
+i2c = busio.I2C(board.SCL, board.SDA)
+sensor = AS7341(i2c)
 # #sensor.conversion_mode = sensor.MODE_2
 #
 
@@ -47,14 +47,14 @@ model = load_model("finalized_model.sav")
 print(model)
 while True:
     _ = input("Press Enter to collect datapoint")
-    datapoint = {"415nm": 1,
-                 "445nm": 2,
-                 "480nm": 3,
-                 "515nm": 4,
-                 "555nm": 5,
-                 "590nm": 6,
-                 "630nm": 7,
-                 "680nm": 8
+    datapoint = {"415nm": int(sensor.channel_415nm),
+                 "445nm": int(sensor.channel_445nm),
+                 "480nm": int(sensor.channel_480nm),
+                 "515nm": int(sensor.channel_515nm),
+                 "555nm": int(sensor.channel_555nm),
+                 "590nm": int(sensor.channel_590nm),
+                 "630nm": int(sensor.channel_630nm),
+                 "680nm": int(sensor.channel_680nm)
                  }
     d.add(datapoint)
     latest_running_mean = d.make_smooth_dataset()[0:,-1]
