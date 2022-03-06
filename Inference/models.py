@@ -11,14 +11,14 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 ##LINEAR REGRESSION
 lr_reg = make_pipeline(LinearRegression())
 
-##RandomForestRegressor
-rf_reg = make_pipeline(StandardScaler(), RandomForestRegressor(max_depth = 3))
+# ##RandomForestRegressor
+# rf_reg = make_pipeline(StandardScaler(), RandomForestRegressor(max_depth = 3))
 
-##SVM
-svr = make_pipeline(StandardScaler(), SVR(kernel='linear', kernel ='rbf', epsilon = 0.3, C = 0.5))
+# ##SVM
+# svr = make_pipeline(StandardScaler(), SVR(kernel='linear', kernel ='rbf', epsilon = 0.3, C = 0.5))
 
-##guassian process
-# Instantiate a Gaussian Process model
-gp = make_pipeline(StandardScaler(),
-                   GaussianProcessRegressor(n_restarts_optimizer=20, normalize_y=True, copy_X_train=False,kernel=RBF()))
+# ##guassian process
+# # Instantiate a Gaussian Process model
+# gp = make_pipeline(StandardScaler(),
+#                    GaussianProcessRegressor(n_restarts_optimizer=20, normalize_y=True, copy_X_train=False,kernel=RBF()))
 
