@@ -23,7 +23,7 @@ sensor = AS7341(i2c)
 # #sensor.conversion_mode = sensor.MODE_2
 #
 
-from models import lr_reg 
+from models import lr_reg ,rf_reg ,svr, gp
 
 
 def load_model(filename):
