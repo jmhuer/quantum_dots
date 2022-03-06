@@ -23,6 +23,10 @@ sensor = AS7341(i2c)
 # #sensor.conversion_mode = sensor.MODE_2
 #
 
+
+import warnings
+warnings.filterwarnings('ignore')
+
 from models import lr_reg 
 
 
