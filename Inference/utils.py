@@ -32,7 +32,7 @@ class Data:
         out_strides = (image.strides[0] * stride, image.strides[1] * stride, image.strides[0], image.strides[1])
         windows = as_strided(image, shape=out_shape, strides=out_strides)
         return np.tensordot(windows, weight, axes=((2, 3), (0, 1))) / kernel_size
-    def get_smooth_data(self, kernel_size=3, stride=3):
+    def get_smooth_data(self, kernel_size=5, stride=5):
         data = []
         for i, name in enumerate(self.history.keys()):
             a = np.array(self.history[name])[None]
