@@ -51,16 +51,17 @@ model = load_model("finalized_model.sav")
 print(model)
 while True:
     _ = input("Press Enter to collect datapoint")
-    datapoint = {"415nm": int(sensor.channel_415nm),
-                 "445nm": int(sensor.channel_445nm),
-                 "480nm": int(sensor.channel_480nm),
-                 "515nm": int(sensor.channel_515nm),
-                 "555nm": int(sensor.channel_555nm),
-                 "590nm": int(sensor.channel_590nm),
-                 "630nm": int(sensor.channel_630nm),
-                 "680nm": int(sensor.channel_680nm)
-                 }
-    d.add(datapoint)
+    for i in range(5):
+        datapoint = {"415nm": int(sensor.channel_415nm),
+                     "445nm": int(sensor.channel_445nm),
+                     "480nm": int(sensor.channel_480nm),
+                     "515nm": int(sensor.channel_515nm),
+                     "555nm": int(sensor.channel_555nm),
+                     "590nm": int(sensor.channel_590nm),
+                     "630nm": int(sensor.channel_630nm),
+                     "680nm": int(sensor.channel_680nm)
+                     }
+        d.add(datapoint)
     latest_running_mean = d.make_smooth_dataset()[0:,-1]
     print(latest_running_mean)
     #model inference
