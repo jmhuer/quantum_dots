@@ -22,7 +22,7 @@ class Data:
         for name in datapoint.keys():
             self.history[name].append(datapoint[name])
         self.timesteps+=1
-    def running_mean(self, image, kernel_size=3, stride=3):
+    def running_mean(self, image, kernel_size=5, stride=5):
         weight = np.ones((1, kernel_size))
         im_h, im_w = image.shape
         if im_w < kernel_size:
